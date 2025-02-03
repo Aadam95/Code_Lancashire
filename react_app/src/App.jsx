@@ -1,27 +1,20 @@
 import React from 'react'
-import Heading from './components/Heading'
-import Card from './components/Card'
-import Counter from './components/Counter'
-import GithubSearch from './components/GithubSearch'
-import ProductList from './components/ProductList'
+
+import { Route, Routes } from 'react-router'
+import GithubSearch from './pages/GithubSearch'
+import Counter from './pages/Counter'
+import Products from './Pages/Products'
+import Layout from './components/Layout'
 
 export default function App() {
   return (
-    <div>
-      {/* <Heading text="First heading" />
-      <Heading text="Second heading" />
-      <Heading text="Third heading" />
-
-      <Card title="Product 1">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum, maxime cupiditate ipsum doloremque, beatae pariatur laudantium possimus excepturi optio perspiciatis impedit non nesciunt repellat ad magnam officia iste iure tempora!
-
-        <button>Click</button>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<GithubSearch />} />
+        <Route path='/counter' element={<Counter />} />
+        <Route path='/products' element={<Products />} />
+      </Route>
         
-      </Card> */}
-
-      <Counter />  
-      <GithubSearch />
-      <ProductList />  
-    </div>
+    </Routes>
   )
 }

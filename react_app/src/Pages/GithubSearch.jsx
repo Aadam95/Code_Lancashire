@@ -44,17 +44,17 @@ export default function GithubSearch() {
 
     return(
         <>
-            <form onSubmit={handleFormSubmit} action="" id="username-form" class="flex items-center w-full">
+            <form onSubmit={handleFormSubmit} action="" id="username-form" className="flex items-center w-full">
                 <input type="text" name="username" id="" placeholder="Enter your Github username"
-                class="border border-blue-800 rounded-l p-2 flex-grow" />
-                <button class="bg-blue-500 text-white px-4 py-2.5 rounded-r">Search</button>
+                className="border border-blue-800 rounded-l p-2 flex-grow" />
+                <button className="bg-blue-500 text-white px-4 py-2.5 rounded-r">Search</button>
             </form>
 
             {
                 user ? (<div id="user-info">
-                    <div class="flex items-center gap-2">
+                    <div className="flex items-center gap-2">
                     <img src={user.avatar_url} alt="user image" id="userimage" 
-                    class="w-16 h-16 rounded-full object-cover object-center" />
+                    className="w-16 h-16 rounded-full object-cover object-center" />
                     <h3 id="username">{user.login}</h3>
                     </div>
                 
@@ -67,7 +67,7 @@ export default function GithubSearch() {
                      <span>Followers</span>
                      <span id="followers">{user.followers}</span>
                     </div>
-                </div>) : <p id="error" class="text-red-500 my-2">
+                </div>) : <p id="error" className="text-red-500 my-2">
                     {error}
                 </p>
             }
