@@ -1,0 +1,15 @@
+#container_1, #container_2 {
+    background: pink;
+    color: palevioletred;
+    padding: 10px 20px 30px 40px;
+    margin: 10px;
+}
+
+.container{
+    background: pink;
+    font-size: 20px;
+    color: palevioletred;
+    padding: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

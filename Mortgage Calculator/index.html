@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f0f8ff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .calculator-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            overflow: hidden;
+        }
+
+        .calculator-form {
+            padding: 2rem;
+            flex: 1;
+        }
+
+        .results-panel {
+            background: #0a2533;
+            padding: 2rem;
+            color: white;
+            width: 50%;
+            border-bottom-left-radius: 80px;
+            position: relative;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .clear-btn {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .dual-input-group {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .dual-input-group .input-group {
+            margin-bottom: 0;
+            flex: 1;
+        }
+
+        label {
+            display: block;
+            color: #666;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .input-with-symbol {
+            position: relative;
+            display: flex;
+        }
+
+        .currency-symbol {
+            position: relative;
+            padding: 0.75rem 1rem;
+            background: #f0f8ff;
+            border: 1px solid #ddd;
+            border-right: none;
+            border-radius: 8px 0 0 8px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+
+        .input-with-unit {
+            display: flex;
+            width: 100%;
+        }
+
+        .input-with-unit input {
+            border-radius: 8px 0 0 8px;
+        }
+
+        .input-with-unit input.with-prefix {
+            border-radius: 0 8px 8px 0;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            background: #f8f9fa;
+        }
+
+        .unit {
+            background: #f0f8ff;
+            padding: 0.75rem 1rem;
+            border: 1px solid #ddd;
+            border-left: none;
+            border-radius: 0 8px 8px 0;
+            color: #666;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mortgage-type {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .radio-option {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .radio-option input[type="radio"] {
+            width: 1.2rem;
+            height: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .radio-option.selected {
+            background: #fafde4;
+            border-color: #e8e86d;
+        }
+
+        .calculate-btn {
+            background-color: #d1d92a;
+            color: #000;
+            border: none;
+            padding: 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            font-weight: 500;
+            margin-top: 1rem;
+        }
+
+        .results-title {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .results-text {
+            color: #a7b6c2;
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .monthly-payment {
+            font-size: 2.5rem;
+            color: #d1d92a;
+            font-weight: 600;
+            margin: 1rem 0;
+        }
+
+        .total-payment {
+            font-size: 1.2rem;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .calculator-container {
+                flex-direction: column;
+            }
+            
+            .results-panel {
+                width: 100%;
+            }
+
+            .dual-input-group {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator-form">
+            <div class="header">
+                <h1>Mortgage Calculator</h1>
+                <a href="#" class="clear-btn" onclick="clearForm()">Clear All</a>
+            </div>
+
+            <div class="input-group">
+                <label>Mortgage Amount</label>
+                <div class="input-with-symbol">
+                    <span class="currency-symbol">£</span>
+                    <input type="number" id="loanAmount" min="1000" step="1000" value="300000" class="with-prefix">
+                </div>
+            </div>
+
+            <div class="dual-input-group">
+                <div class="input-group">
+                    <label>Mortgage Term</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="loanTerm" min="1" max="40" step="1" value="25">
+                        <span class="unit">years</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>Interest Rate</label>
+                    <div class="input-with-unit">
+                        <input type="number" id="interestRate" min="0" max="100" step="0.01" value="5.25">
+                        <span class="unit">%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label>Mortgage Type</label>
+                <div class="mortgage-type">
+                    <div class="radio-option selected">
+                        <input type="radio" id="repayment" name="mortgageType" value="repayment" checked>
+                        <label for="repayment">Repayment</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="interestOnly" name="mortgageType" value="interestOnly">
+                        <label for="interestOnly">Interest Only</label>
+                    </div>
+                </div>
+            </div>
+
+            <button class="calculate-btn" onclick="calculateMortgage()">Calculate Repayments</button>
+        </div>
+
+        <div class="results-panel">
+            <h2 class="results-title">Your results</h2>
+            <p class="results-text">Your results are shown below based on the information you provided. To adjust the results, edit the form and click "calculate repayments" again.</p>
+            
+            <div>
+                <div>Your monthly repayments</div>
+                <div class="monthly-payment" id="monthlyPayment">£1,797.74</div>
+            </div>
+
+            <div class="total-payment">
+                <div>Total you'll repay over the term</div>
+                <div id="totalPayment">£539,322.94</div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

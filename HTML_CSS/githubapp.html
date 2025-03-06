@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+</head>
+<body>
+    <main class="max-w-md mx-auto p-6 border border-blue-800 mt-6 rounded shadow-lg bg-gray-300">
+        <div>
+            <h2 id="github_profile_search" class="text-xl mb-6">Github Profile Search</h2>
+            <form action="" id="username-form" class="flex items-center w-full mb-6">
+                <input type="text" name="username" placeholder="Enter your Github username" class="border border-blue-800 rounded-l p-2 flex-grow placeholder-gray-500" />
+                <button class="bg-gray-600 text-white px-4 py-2.5 rounded-r hover:animate-spin">Search</button>
+            </form>
+
+            <div class="border border-blue-800 rounded p-4 flex items-center bg-blue-100">
+                <a href="#" target="_blank" id="profile-link">
+                    <img src="https://media.istockphoto.com/id/2151669184/vector/vector-flat-illustration-in-grayscale-avatar-user-profile-person-icon-gender-neutral.jpg?s=612x612&w=0&k=20&c=UEa7oHoOL30ynvmJzSCIPrwwopJdfqzBs0q69ezQoM8=" alt="user image" id="userimage" class="w-16 h-16 object-cover object-center mr-4 border border-blue-800 rounded-full" style="width: 4rem; height: 4rem;" />
+                </a>    
+                <div>
+                    <a href="#" target="_blank" id="username-link">
+                        <h3 id="username" class="underline">Username will come here</h3>
+                    </a>    
+                    <div class="flex items-center">
+                        <span class="underline">Public repos:</span>
+                        <span id="public_repos" class="ml-2 underline ">0</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="underline">Followers:</span>
+                        <span id="followers" class="ml-2 underline">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </main>
+    <script src="./script.js"></script>
+</body>
+</html>

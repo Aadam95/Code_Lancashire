@@ -7,6 +7,7 @@ export default function Navbar() {
             <Link to='/'>GithubSearch</Link>
             <Link to='/counter'>Counter</Link>
             <Link to='/products'>Products</Link>
+            <Link to='/mortgage'>Mortgage Calculator</Link>
         </div>
     )
 }

@@ -1,0 +1,168 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 800px; /* Adjust width as needed */
+  display: flex;
+  justify-content: space-between;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00474b;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #26c2ae;
+}
+
+/* Specific Component Styles */
+.general-input-container {
+  width: 45%; /* Adjust width as needed */
+}
+
+.bill-container,
+.select-tip-container,
+.people-container,
+.recap-container {
+  margin-bottom: 20px;
+}
+
+.recap-container {
+  width: 45%; /* Adjust width as needed */
+}
+
+.tip-container,
+.total-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tip-amount,
+.total-amount {
+  font-size: 1.5em;
+  color: #333;
+}
+
+.btn-reset-form {
+  text-align: center;
+}
+
+.btn-reset-form.empty button {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.tip-input input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.tip-input-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.tip-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00474b; /* Dark background color */
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  text-align: center;
+  height: 30px; /* Ensure consistent height */
+  color: #fff; /* White text color */
+  font-weight: bold; /* Bold text */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.tip-option input[type="radio"] {
+  display: none;
+}
+
+.tip-option label {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #00474b; /* Dark background color */
+  color: #fff; /* White text color */
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%; /* Ensure label takes full height */
+  transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.tip-option input[type="radio"]:checked + label {
+  background-color: #26c2ae; /* Light background color when selected */
+  color: #00474b; /* Dark text color when selected */
+}
+
+.custom-option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4; /* Light background color */
+  border-radius: 10px;
+  padding: 10px;
+  height: 50px; /* Ensure consistent height */
+}
+
+.custom-option input[type="tel"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  text-align: center;
+  height: 100%; /* Ensure consistent height */
+  box-sizing: border-box; /* Include padding and border in height calculation */
+  background-color: #fff; /* White background color */
+  color: #00474b; /* Dark text color */
+  font-weight: bold; /* Bold text */
+}
