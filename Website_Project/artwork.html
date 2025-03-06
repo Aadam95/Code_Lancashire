@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Rivals - Artwork</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .bg-image {
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            height: 100vh;
+        }
+        .banner {
+            background-color: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+        }
+        .nav-button {
+            background-color: #000;
+            color: #ffcc00;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .nav-button:hover {
+            background-color: #FDFD96;
+            color: #000;
+        }
+    </style>
+</head>
+<body class="bg-image bg-cover text-gray-800" style="background-image: url('https://static1.srcdn.com/wordpress/wp-content/uploads/2021/10/jeff-the-landshark-feature.jpg');">
+    <div class="banner max-w-screen-md mx-auto p-4 my-8">
+        <header class="bg-yellow-400 text-black p-4 text-center rounded shadow-md">
+            <h1 class="text-3xl font-bold">Marvel Rivals</h1>
+            <nav class="mt-2 flex justify-center">
+                <a href="index.html" class="mx-2 nav-button">Home</a>
+                <a href="characters.html" class="mx-2 nav-button">Characters</a>
+                <a href="artwork.html" class="mx-2 nav-button">Artwork</a>
+            </nav>
+        </header>
+        <main class="p-4">
+            <section class="mb-8">
+                <h2 class="text-2xl text-black font-semibold mb-2">Select your favourite character to see some of their in game cosmetic artwork below!</h2>
+                <form id="character-form" class="bg-yellow-400 p-4 rounded shadow-md">
+                    <div class="mb-4">
+                        <label for="favorite-character" class="block text-sm font-medium text-black-700">Select Your Favourite Character</label>
+                        <select id="favorite-character" name="favorite-character" class="mt-1 p-2 w-full border border-black-300 rounded-md">
+                            <option value="Jeff">Jeff</option>
+                            <option value="Namor">Namor</option>
+                            <option value="Captain America">Captain America</option>
+                            <option value="Peni Parker">Peni Parker</option>
+                            <option value="Moon Knight">Moon Knight</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="nav-button">Submit</button>
+                </form>
+                <div id="artwork" class="mt-8">
+                </div>
+            </section>
+        </main>
+        <footer class="bg-yellow-400 text-black text-center p-4 mt-8 rounded shadow-md">
+            <p>Aadam Bobat</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
