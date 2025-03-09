@@ -1,20 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-export default function InputBox({ onTextChange }) {
-  const [text, setText] = useState('');
-
-  const handleChange = (e) => {
-    const newText = e.target.value;
-    setText(newText);
-    onTextChange(newText);
-  };
-
+function InputBox({ text, setText }) {
   return (
-    <textarea
-      value={text}
-      onChange={handleChange}
-      className="w-full h-40 p-2 border border-gray-300 rounded"
-      placeholder="Type or paste your text here..."
-    />
+    <div className="mb-6">
+      <label htmlFor="text-input" className="block text-sm font-medium text-slate-300 mb-2">
+        Enter your text:
+      </label>
+      <textarea
+        id="text-input"
+        className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500 min-h-40 transition-all duration-200 text-white"
+        placeholder="Type or paste your text here..."
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+    </div>
   );
 }
+
+export default InputBox;
