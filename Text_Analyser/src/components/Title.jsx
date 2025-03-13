@@ -14,7 +14,7 @@ function Title() {
 
   return (
     <h1 
-      className="text-4xl font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-orange-400 inline-block text-transparent bg-clip-text cursor-default"
+      className="text-4xl font-extrabold bg-gradient-to-r from-orange-400 via-red-500 to-orange-400 inline-block text-transparent bg-clip-text cursor-default pb-1"
       style={gradientTextStyle}
       onMouseEnter={(e) => {
         Object.assign(e.target.style, gradientTextHoverStyle);
@@ -23,7 +23,7 @@ function Title() {
         e.target.style.backgroundPosition = '0% center';
       }}
     >
-      Text Analyzer
+      Text Analyser
     </h1>
   );
 }
